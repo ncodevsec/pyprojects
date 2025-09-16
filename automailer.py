@@ -11,11 +11,12 @@ sender = os.environ.get("SENDER")
 receiver = os.environ.get("RECEIVER")
 
 # Content
-subject = "This is the mail Subject"
-body = 'This is super text'
+subject = "Automailer - Test Mail"
+# Collecting body content from a html file.
+body = open("mail-body.html", encoding="utf-8").read() 
 
 # -------[ Create MIMEText Obj ]-------
-msg = MIMEText(body, "palin") # If body is in html, use "html"
+msg = MIMEText(body, "html") # If body is in plain-text, use "plain"
 msg["From"] = sender
 msg["To"] = receiver
 msg["Subject"] = subject
